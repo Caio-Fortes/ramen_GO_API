@@ -1,13 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
-const dotenv = require('dotenv');
-dotenv.config();
+
 
 const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use((req, res, next) => {
+    res.header("Acess-Control-Allow-Origin", "*")
+    res.header("Acess-Control,Allow-Methods", 'GET,PUT,POST,DELETE')
+    app.use(cors());
+    next();
+})
 
 const brothRoutes = require('./src/routes/brothRoutes');
 app.use('/broths', brothRoutes);
