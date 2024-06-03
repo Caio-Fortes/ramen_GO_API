@@ -10,7 +10,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use((req, res, next) => {
     res.header("Acess-Control-Allow-Origin", "*")
-    res.header("Acess-Control,Allow-Methods", 'GET,PUT,POST,DELETE')
     app.use(cors());
     next();
 })
