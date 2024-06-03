@@ -9,13 +9,13 @@ const port = process.env.PORT || 3000;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-const brothRoutes = require('./routes/brothRoutes');
+const brothRoutes = require('./src/routes/brothRoutes');
 app.use('/broths', brothRoutes);
 
-const proteinsRoutes = require('./routes/proteinRoutes');
+const proteinsRoutes = require('./src/routes/proteinRoutes');
 app.use('/proteins', proteinsRoutes);
 
-const orderRoutes = require('./routes/orderRoutes');
+const orderRoutes = require('./src/routes/orderRoutes');
 app.use('/orders', orderRoutes);
 
 const conectionString = `mongodb+srv://root:root@ramengocluster.0ihmfdn.mongodb.net/?retryWrites=true&w=majority&appName=ramengoCluster`
